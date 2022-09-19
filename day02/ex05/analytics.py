@@ -1,6 +1,4 @@
-import sys
 from random import randint
-
 
 class Research:
     def __init__(self, file):
@@ -53,19 +51,6 @@ class Analytics(Research.Calculations):
     def predict_last(self):
         return self.lst[-1]
 
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        raise Exception("invalid number arg")
-    else:
-        r = Research(sys.argv[1])
-        data = r.file_reader()
-        c = Research.Calculations(data)
-        a = Analytics(data)
-        counts = c.counts()
-        fractions = c.fractions()
-        print(data)
-        print(counts[0], counts[1])
-        print(fractions[0], fractions[1])
-        print(a.predict_random(3))
-        print(a.predict_last())
+    def save_file(self, data, file, exp):
+        with open(f'{file}.{exp}', "w") as f:
+            f.write(data)

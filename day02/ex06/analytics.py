@@ -1,12 +1,12 @@
-import sys
+import logging
 from random import randint
-
 
 class Research:
     def __init__(self, file):
         self.file = file
 
     def file_reader(self, has_header=True):
+        logging.info(f"read file {self.file}")
         with open(self.file, "r") as f:
             res = []
             arr = f.read().split('\n')
@@ -27,6 +27,7 @@ class Research:
             self.lst = lst
 
         def counts(self):
+            logging.info("calculate counts")
             a = 0
             b = 0
             for i in self.lst:
@@ -37,6 +38,7 @@ class Research:
             return a, b
 
         def fractions(self):
+            logging.info("calculate fractions")
             ln = len(self.lst)
             a, b = self.counts()
             return a / ln * 100, b / ln * 100
@@ -44,6 +46,7 @@ class Research:
 
 class Analytics(Research.Calculations):
     def predict_random(self, k):
+        logging.info(f"generate random (step = {k})")
         pattern = [[0,1], [1, 0]]
         res = []
         for _ in range(0, k):
@@ -51,21 +54,10 @@ class Analytics(Research.Calculations):
         return res
 
     def predict_last(self):
+        logging.info("get last")
         return self.lst[-1]
 
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        raise Exception("invalid number arg")
-    else:
-        r = Research(sys.argv[1])
-        data = r.file_reader()
-        c = Research.Calculations(data)
-        a = Analytics(data)
-        counts = c.counts()
-        fractions = c.fractions()
-        print(data)
-        print(counts[0], counts[1])
-        print(fractions[0], fractions[1])
-        print(a.predict_random(3))
-        print(a.predict_last())
+    def save_file(self, data, file, exp):
+        logging.info(f"save data to file {file}.{exp}")
+        with open(f'{file}.{exp}', "w") as f:
+            f.write(data)
