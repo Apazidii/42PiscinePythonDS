@@ -1,0 +1,7 @@
+2022-10-03 23:47:15,655 read file ../ex02/data.csv
+2022-10-03 23:47:15,655 calculate counts
+2022-10-03 23:47:15,655 calculate fractions
+2022-10-03 23:47:15,655 calculate counts
+2022-10-03 23:47:15,655 generate random (step = 5)
+2022-10-03 23:47:15,655 calculate counts
+2022-10-03 23:47:15,655 save data to file report.txt

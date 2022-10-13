@@ -4,7 +4,7 @@ from config import *
 import logging
 import json
 
-import requests
+# import requests
 
 def make_report(file):
     logging.basicConfig(filename="analytics.log", format='%(asctime)s %(message)s', encoding='utf-8', level=logging.DEBUG)
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     try:
         if len(sys.argv) == 2:
             make_report(sys.argv[1])
-        requests.post(webhook, json.dumps({"text": "The report has been successfully create"}))
+        # requests.post(webhook, json.dumps({"text": "The report has been successfully create"}))
     except Exception as e:
-        requests.post(webhook, json.dumps({"text": "The report hasn’t been created due to an error"}))
+        # requests.post(webhook, json.dumps({"text": "The report hasn’t been created due to an error"}))
         raise e

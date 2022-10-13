@@ -1,0 +1,12 @@
+449895 function calls (434702 primitive calls) in 2.124 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1173 to 5 due to restriction <5>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     80/1    0.000    0.000    2.124    2.124 {built-in method builtins.exec}
+        1    0.000    0.000    2.124    2.124 financial_enhanced.py:2(<module>)
+        1    0.000    0.000    1.954    1.954 financial_enhanced.py:10(run)
+      709    0.002    0.000    1.229    0.002 /usr/lib/python3.9/socket.py:690(readinto)
+      709    0.002    0.000    1.226    0.002 /usr/lib/python3.9/ssl.py:1230(recv_into)
+
